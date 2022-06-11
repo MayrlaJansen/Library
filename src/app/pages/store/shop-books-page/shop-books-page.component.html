@@ -1,0 +1,57 @@
+<div class="uk-container">
+  <div class="uk-navbar-right">
+    <ul class="uk-navbar-nav">
+      <li class="uk-active"><a href="registerBook"><span class="uk-icon uk-margin-small-right" uk-icon="icon: plus"></span>
+          Novo Livro</a></li>
+    </ul>
+  </div>
+  <div class="uk-grid uk-margin-small-top" *ngIf="products.length > 0">
+    <div class="uk-width-1-3@m uk-margin-small-bottom" *ngFor="let product of products">
+      <div class="uk-card uk-card-default">
+        <div class="uk-card-media-top uk-text-center">
+          <img src="{{ product.image }}" height="150" width="150" class="uk-margin-small-top uk-border-circle" alt="">
+        </div>
+        
+        <div class="uk-card-body">
+          <h3 class="uk-card-title">{{ product.price/100 | currency: 'BRL' }}</h3>
+          <p style="height: 50px;">
+            {{ product.title }} - {{ product.author }}
+          </p>
+          <p class="uk-text-center">
+            <a (click)="toExpand()" class="uk-button uk-button-link">Mostar detalhes</a>
+          </p>
+          <div class="uk-card-body" *ngIf="expand">
+            {{ product.description }}
+          </div>
+          <div *ngIf="!product.rented">
+            <a [routerLink]="['/rented']" [queryParams]="{ bookId: product.id}">
+              <button id="rentedButton" class="uk-button uk-button-default uk-button-large uk-width-1-1"  [disabled]="product.rented">
+                <span class="rentedButtonSpan uk-icon uk-margin-small-right" uk-icon="icon: cart">Alugar</span>
+              </button>
+            </a>
+            <a [routerLink]="['/editBook']" [queryParams]="{ bookId: product.id}">
+                <button id="editButton" class="uk-button uk-margin-small-top uk-button-default uk-button-large uk-width-1-1"  [disabled]="product.rented" >
+                <span class="editButtonSpan uk-icon" uk-icon="icon: pencil">Editar</span>
+              </button>
+              </a>
+              <a (click)="delete(product.id)" >
+                <button id="deleteButton" class="uk-button uk-margin-small-top uk-button-default uk-button-large uk-width-1-1"  [disabled]="product.rented" >
+                <span class="deleteButtonSpan uk-icon " uk-icon="icon: pencil">Excluir</span>
+              </button>
+              </a>
+          </div>
+          <div *ngIf="product.rented">
+            <a (click)="giveBack(product.id)" >
+            <button id="rentedButton" class="uk-button uk-button-default uk-button-large uk-width-1-1" >
+              <span class="rentedButtonSpan uk-icon uk-margin-small-right" uk-icon="icon: cart"> Marcar como devolvido</span>
+            </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="products.length === 0">
+    <p>Você ainda não tem livros cadastrados!</p>
+  </div>
+</div>

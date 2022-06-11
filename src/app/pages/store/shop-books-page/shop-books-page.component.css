@@ -1,0 +1,30 @@
+#form{
+  background: #3023ae;
+  background: -moz-linear-gradient(60deg, #3023ae 0%, #c86dd7 100%);
+  background: -webkit-linear-gradient(60deg, #3023ae 0%, #c86dd7 100%);
+  background: linear-gradient(60deg, #3023ae 0%, #c86dd7 100%);
+}
+.uk-button-link{
+  color: #3023ae;
+}
+
+#deleteButton{
+  border-color: rgb(248, 111, 111);
+}
+.deleteButtonSpan{
+  color: rgb(248, 111, 111);
+}
+
+#editButton{
+  border-color: rgb(108, 108, 236);
+}
+.editButtonSpan{
+  color: rgb(108, 108, 236);
+}
+
+#rentedButton{
+  border-color: rgb(47, 131, 47);
+}
+.rentedButtonSpan{
+  color: rgb(47, 131, 47);
+}

@@ -1,0 +1,32 @@
+<div class="uk-background-primary uk-light" id="form">
+  <div class="uk-container" >
+    <nav class="uk-navbar-container uk-navbar-transparent uk-margin" uk-navbar>
+      <div class="uk-navbar-left">
+        <a class="uk-navbar-item uk-logo" href="/">
+          <span class="uk-icon-button uk-margin-small-right" >
+            <img src="assets/books.png" />
+          </span>
+        </a>
+        <ul class="uk-navbar-nav">
+          <li><a [routerLink]="['/']" routerLinkActive="uk-text-bold">Livraria</a></li>
+        </ul>
+      </div>
+      <div id="divBusca" class="uk-navbar-right" *ngIf="expand">
+        <input type="text" id="txtBusca" (onkeyup)="search()" placeholder="Buscar..."/>
+          <span  uk-icon="icon: search"></span>
+      </div>
+      <div class="uk-navbar-right">
+        <div class="uk-navbar-right"> <a (click)="toExpand()" class="uk-button uk-button-link"><span class="uk-icon uk-margin-small-right" uk-icon="icon: search"></span>
+              Pesquisar</a>
+        </div>
+        <ul class="uk-navbar-nav uk-margin-large-left">
+          <li>
+            <a (click)="logout()">
+              <span class="uk-icon uk-margin-small-right" uk-icon="icon: sign-out"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>
