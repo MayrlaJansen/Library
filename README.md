@@ -2,7 +2,7 @@
 <h1 align="center"> Aplicação desenvolvida para aplicar conhecimentos em Angular. </h1>
 
 <ul>
-  <li>uso do sistema de rotas do Angular e componentização;</li>
+  <li>Uso do sistema de rotas do Angular e componentização;</li>
   <li>Tela inicial é o login;</li>
   <li>Impossibilidade de acessar outras telas sem realizar login;</li>
   <li>Página de cadastro;</li>
